@@ -1,0 +1,185 @@
+body{
+    background-color: #e0e0e0;
+
+    .wrapper{
+        max-width: 1300px;
+        padding: 20px;
+        margin: 40px auto;
+
+        .character_list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            .character_card{
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 60px;
+                border-radius: 5px;
+                cursor: pointer;
+
+                img{
+                    width: 80%;
+                    border-radius: 5px;
+                    box-shadow: -1px 11px 17px 7px rgba(34,60,80,.2);
+                    margin-top: -20px;
+                    transition: all .5s;
+
+                    &:hover{
+                        margin-top: -40px; 
+                    }
+                }
+
+                p{
+                    font-weight:900;
+                }
+            }
+
+            .wrap_loader{
+
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                z-index: 100;
+                transition: 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .loader {
+                    width: 50px;
+                    height: 50px;
+                    border: 10px solid #424242;
+                    border-radius: 50%;
+                    border-left-color: #bdbdbd;
+                    animation: loader 1.3s linear infinite;
+                }
+                
+                @keyframes loader {
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+
+            /* Стили для появления кнопки */
+              @keyframes swirl-in-fwd {
+                0% {
+                  -webkit-transform: rotate(-540deg) scale(0);
+                          transform: rotate(-540deg) scale(0);
+                  opacity: 0;
+                }
+                100% {
+                  -webkit-transform: rotate(0) scale(1);
+                          transform: rotate(0) scale(1);
+                  opacity: 1;
+                }
+              }
+              
+              
+              /* Стили для исчезновения кнопки */
+              @keyframes swirl-out-bck {
+                0% {
+                  -webkit-transform: rotate(0) scale(1);
+                          transform: rotate(0) scale(1);
+                  opacity: 1;
+                }
+                100% {
+                  -webkit-transform: rotate(-540deg) scale(0);
+                          transform: rotate(-540deg) scale(0);
+                  opacity: 0;
+                }
+              }
+              
+
+            .scroll_top {
+                position: fixed;
+                top: 20px;
+                left: 15px;
+                display: none;
+                padding: 20px;
+                background-color: #ededed;
+                box-shadow: 7px 7px 15px rgba(55, 84, 170, .15), -7px -7px 20px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, .2);
+                color: #4a4a4a;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                outline: none;
+                font-weight: 700;
+                transition: all .4s;
+                animation: swirl-in-fwd 0.6s ease-out both, swirl-out-bck 0.6s ease-in both;
+
+                &:hover{
+                    transform: scale(1.1);
+                }
+
+                &.visible {
+                    animation-name: swirl-in-fwd;
+                    display: block;
+                  }
+              }
+            }
+    }
+
+    .modal{
+      display: flex;
+      justify-content: space-between;
+
+      .img_modal{
+        @media (max-width: 970px) {
+          width: 100%;
+
+          img{
+            width: 100%;
+          }
+        }
+      }
+
+        div:first-child{
+        margin-right: 50px;
+
+        @media (max-width: 970px) {
+          margin-right: 0;
+        }
+      }
+
+      & p{
+        margin: 8px;
+      }
+
+      & .point{
+        font-weight: 800;
+      } 
+
+      @media (max-width: 970px) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .second div{
+          display: flex;
+        }
+
+        .third div{
+          display: flex;
+        }
+
+        .fourth div{
+          display: flex;
+        }
+      }
+    }
+
+    .btn_close {
+      display: flex;
+      justify-content: end;
+
+        button{
+          border-radius: 5px;
+        }
+    }
+}
+
