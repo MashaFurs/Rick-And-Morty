@@ -46,7 +46,7 @@ const CharacterList = ()=>{
         if(fetching) {
             fetchCharacters();
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[fetching, currentPage ]);
 
 
