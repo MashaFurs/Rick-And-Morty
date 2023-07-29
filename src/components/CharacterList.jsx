@@ -44,7 +44,6 @@ const CharacterList = ()=>{
     useEffect( ()=>{
 
         if(fetching) {
-            console.log('fetching');
             fetchCharacters();
         }
 
